@@ -18,7 +18,7 @@ if($_SESSION["s_usuario"] === null){
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Cdip - Dashboard</title>
+  <title>Qredirector - Dashboard</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -47,7 +47,7 @@ if($_SESSION["s_usuario"] === null){
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Cdip <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">QRedirector <sup>2</sup></div>
       </a>
 
       <!-- Divider -->
@@ -62,66 +62,20 @@ if($_SESSION["s_usuario"] === null){
                   <!-- Divider -->
       <hr class="sidebar-divider">
 
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Elementos
-      </div>
-
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Datos</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Gestionar Datos:</h6>
-            <a class="collapse-item" href="karde.php">Karde</a>
-            <a class="collapse-item" href="autor.php">Autor</a>
-            <a class="collapse-item" href="clasificacion.php">Clasificaciones</a>
-            <a class="collapse-item" href="editoriales.php">Editoriales</a>
-            <a class="collapse-item" href="materias.php">Materias</a>
-          </div>
-        </div>
-      </li>
-
-
-
-      <li class="nav-item active">
-        <a class="nav-link" href="index.php">
-          <i class="fas fa-fw fa-book"></i>
-          <span>Prestamos</span></a>
-      </li>
-
       <!-- Divider -->
       <hr class="sidebar-divider">
 
       <li class="nav-item active">
-        <a class="nav-link" href="libros.php">
+        <a class="nav-link" href="codigo.php">
           <i class="fas fa-fw fa-book"></i>
-          <span>Libros</span></a>
+          <span>Codigos</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="revistas.php">
-          <i class="fas fa-fw fa-book"></i>
-          <span>Revistas</span></a>
+        <a class="nav-link" href="usuario.php">
+          <i class="fas fa-fw fa-user"></i>
+          <span>usuarios</span></a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="tabloides.php">
-          <i class="fas fa-fw fa-sticky-note"></i>
-          <span>Tabloide</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="periodicos.php">
-          <i class="fas fa-fw fa-newspaper"></i>
-          <span>Períodicos</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="cds.php">
-          <i class="fas fa-fw  fa-compact-disc"></i>
-          <span>CDs</span></a>
-      </li>
-    
+          
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">

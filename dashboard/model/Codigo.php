@@ -5,41 +5,44 @@ $conexion = $objeto->Conectar();
 
 // Recepción de los datos enviados mediante POST desde el JS   
 
-$id_karde = (isset($_POST['id_karde'])) ? $_POST['id_karde'] : '';
-$numero = (isset($_POST['numero'])) ? $_POST['numero'] : '';
-$anio = (isset($_POST['anio'])) ? $_POST['anio'] : '';
-$descripcion = (isset($_POST['descripcion'])) ? $_POST['descripcion'] : '';
+$url_code = (isset($_POST['url_code'])) ? $_POST['url_code'] : '';
+$ubicacion = (isset($_POST['ubicacion'])) ? $_POST['ubicacion'] : '';
+$unidad = (isset($_POST['unidad'])) ? $_POST['unidad'] : '';
+$permiso = (isset($_POST['permiso'])) ? $_POST['permiso'] : '';
+$activo = (isset($_POST['activo'])) ? $_POST['activo'] : '';
 $opcion = (isset($_POST['opcion'])) ? $_POST['opcion'] : '';
 $id = (isset($_POST['id'])) ? $_POST['id'] : '';
 
 switch($opcion){
     case 1: //alta
-        $consulta = "INSERT INTO revistas (id_karde, numero, anio, descripcion) VALUES ($id_karde, $numero, $anio, '$descripcion') ";
+
+       $consulta = "INSERT INTO codigos (id, url_code, ubicacion, unidad, permiso, activo) VALUES ('$id','$url_code', '$ubicacion', $unidad, '$permiso', $activo) ";
         $resultado = $conexion->prepare($consulta);
         $resultado->execute(); 
 
-        $consulta = "SELECT id, id_karde, numero, anio, descripcion FROM revistas ORDER BY id DESC LIMIT 1";
+        $consulta = "SELECT * FROM codigos ORDER BY id DESC LIMIT 1";
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();
         $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
         break;
     case 2: //modificación
-        $consulta = "UPDATE `revistas` SET `id_karde` = $id_karde, `numero` = $numero, `anio` = $anio, `descripcion` = '$descripcion'  WHERE `revistas`.`id` = $id ";
+
+        $consulta = "UPDATE `codigos` SET `id` = $id, `url_code` = `$url_code`, `ubicacion` = $ubicacion, `unidad` = `$unidad`, `permiso` = $permiso, `activo` = $activo  WHERE `codigos`.`id` = $id ";
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();
 
-        $consulta = "SELECT id, id_karde, numero, anio, descripcion FROM revistas ORDER BY id DESC LIMIT 1";
+        $consulta = "SELECT * FROM codigos ORDER BY id DESC LIMIT 1";
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();
         
         $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
         break;        
     case 3://baja
-        $consulta = "DELETE FROM revistas WHERE id='$id' ";		
+        $consulta = "DELETE FROM codigos WHERE id='$id'";		
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();
 
-        $consulta = "SELECT id, id_karde, numero, anio, descripcion FROM revistas ORDER BY id DESC LIMIT 1";
+        $consulta = "SELECT * FROM codigos ORDER BY id DESC LIMIT 1";
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();
         $data=$resultado->fetchAll(PDO::FETCH_ASSOC);

@@ -11,26 +11,13 @@ include_once '../bd/conexion.php';
 $objeto = new Conexion();
 $conexion = $objeto->Conectar();
 
-$consulta = "SELECT libros.*, concat_ws(' ', autor.nombres, autor.apellido1, autor.apellido2) as autor, editoriales.nombre as editorial, clasificaciones.clasificacion FROM libros left join autor on libros.id_autor = autor.id left join editoriales on libros.id_editorial = editoriales.id left join clasificaciones on libros.id_clasificacion = clasificaciones.id";
-
-$obtEditoriales = "SELECT * FROM editoriales";
-$obtClasificaciones = "SELECT * FROM clasificaciones";
-$obtAutores = "SELECT * FROM autor";
+$consulta = "SELECT * FROM `codigos`;
 
 $resultado = $conexion->prepare($consulta);
-$resultEditoriales = $conexion->prepare($obtEditoriales);
-$resultClasificaciones=$conexion->prepare($obtClasificaciones);
-$resultAutores=$conexion->prepare($obtAutores);
 
 $resultado->execute();
-$resultEditoriales->execute();
-$resultClasificaciones->execute();
-$resultAutores->execute();
 
 $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
-$dataEditoriales=$resultEditoriales->fetchAll(PDO::FETCH_ASSOC);
-$dataClasificaciones=$resultClasificaciones->fetchAll(PDO::FETCH_ASSOC);
-$dataAutores=$resultAutores->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 
