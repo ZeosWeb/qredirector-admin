@@ -2,7 +2,7 @@
 
 <!--INICIO del cont principal-->
 <div class="container">
-   <h1 align="center">Autor</h1>
+   <h1 align="center">Usuarios</h1>
     
     
     
@@ -11,7 +11,7 @@ include_once '../bd/conexion.php';
 $objeto = new Conexion();
 $conexion = $objeto->Conectar();
 
-$consulta = "SELECT id, nombres, apellido1, apellido2, nacionalidad, bio FROM autor";
+$consulta = "SELECT * FROM usuarios";
 $resultado = $conexion->prepare($consulta);
 $resultado->execute();
 $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
@@ -21,7 +21,7 @@ $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
 <div class="container">
         <div class="row">
             <div class="col-lg-12">            
-            <button id="btnNuevoAutor" type="button" class="btn btn-success" data-toggle="modal">Nuevo</button>    
+            <button id="btnNuevoUsuario" type="button" class="btn btn-success" data-toggle="modal">Nuevo</button>    
             </div>    
         </div>    
     </div>    
@@ -30,15 +30,14 @@ $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
         <div class="row">
                 <div class="col-lg-12">
                     <div class="table-responsive">        
-                        <table id="tablaAutor" class="table table-striped table-bordered table-condensed" style="width:100%">
+                        <table id="tablaUsuario" class="table table-striped table-bordered table-condensed" style="width:100%">
                         <thead class="text-center">
                             <tr>
                                 <th style="display: none;">Id</th>
-                                <th>Nombres</th>
-                                <th>1er Apellido</th>
-                                <th>2do Apellido</th>
-                                <th>Nacionalidad</th>
-                                <th>Bio</th>
+                                <th>Usuario</th>
+                                <th>Nombre</th>
+                                <th>Unidad</th>
+                                <th>Permiso</th>
                                 <th>Acciones</th>                              
                             </tr>
                         </thead>
@@ -48,11 +47,10 @@ $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
                             ?>
                             <tr>
                                 <td style="display: none;"><?php echo $dat['id'] ?></td>
-                                <td><?php echo $dat['nombres'] ?></td>
-                                <td><?php echo $dat['apellido1'] ?></td>
-                                <td><?php echo $dat['apellido2'] ?></td>
-                                <td><?php echo $dat['nacionalidad'] ?></td>
-                                <td><?php echo $dat['bio'] ?></td>
+                                <td><?php echo $dat['usuario'] ?></td>
+                                <td><?php echo $dat['nombre'] ?></td>
+                                <td><?php echo $dat['unidad'] ?></td>
+                                <td><?php echo $dat['permiso'] ?></td>
                                 <td></td>
                             </tr>
                             <?php
@@ -66,7 +64,7 @@ $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
     </div>    
       
 <!--Modal para CRUD-->
-<div class="modal fade" id="modalAutor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -74,28 +72,36 @@ $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        <form id="formAutor">    
+        <form id="formUsuario">    
             <div class="modal-body">
                 <div class="form-group">
-                <input type="number" class="form-control" id="idAutor" hidden>
-                <label for="nombres" class="col-form-label">Nombres:</label>
-                <input type="text" class="form-control" id="nombres">
+                <input type="number" class="form-control" id="idUsuario" hidden>
+                <label for="usuario" class="col-form-label">Usuario:</label>
+                <input type="text" class="form-control" id="usuario">
                 </div>  
                 <div class="form-group">
-                <label for="apellido1" class="col-form-label">Primer Apellido:</label>
-                <input type="text" class="form-control" id="apellido1">
+                <label for="nombre" class="col-form-label">Nombre:</label>
+                <input type="text" class="form-control" id="nombre">
                 </div>  
                 <div class="form-group">
-                <label for="apellido2" class="col-form-label">Segundo Apellido:</label>
-                <input type="text" class="form-control" id="apellido2">
+                <label for="unidad" class="col-form-label">Unidad:</label>
+                <select class="form-control" id="unidad" placeholder="Seleccione">
+                    <option value=1>1</option>;
+                    <option value=2>2</option>;
+                    <option value=3>3</option>;
+                    <option value=4>4</option>;
+                    </select>
                 </div>
                 <div class="form-group">
-                <label for="nacionalidad" class="col-form-label">Nacionalidad:</label>
-                <input type="text" class="form-control" id="nacionalidad">
+                <label for="permiso" class="col-form-label">Permisos:</label>
+                <select class="form-control" id="permiso" placeholder="Seleccione">
+                    <option value=1>1</option>;
+                    <option value=2>2</option>;
+                    <option value=3>3</option>;
+                    <option value=4>4</option>;
+                    </select>
                 </div>
-                <div class="form-group">
-                <textarea class="form-control" rows="3" id="bio" placeholder="Biografia"></textarea>
-                </div>                        
+                   
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>

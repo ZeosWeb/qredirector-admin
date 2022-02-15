@@ -109,7 +109,7 @@ $(document).on("click", ".btnEditarUsuario", function(){
     
 });
 
-//Libro Editar
+//codigo Editar
 $(document).on("click", ".btnEditarCodigo", function(){
     fila = $(this).closest("tr");
     id = fila.find('td:eq(0)').text();
@@ -206,7 +206,7 @@ $("#formUsuario").submit(function(e){
 });
 
 //Submit Form libros
-$("#formLibro").submit(function(e){
+$("#formCodigo").submit(function(e){
     e.preventDefault();
     id = $.trim($("#idCodigo").val());
     url_code = $.trim($("#url_code").val());

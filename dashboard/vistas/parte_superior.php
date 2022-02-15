@@ -18,7 +18,7 @@ if($_SESSION["s_usuario"] === null){
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Qredirector - Dashboard</title>
+  <title>QRedirector - Dashboard</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -47,7 +47,7 @@ if($_SESSION["s_usuario"] === null){
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">QRedirector <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">QRedirector</div>
       </a>
 
       <!-- Divider -->
@@ -62,20 +62,20 @@ if($_SESSION["s_usuario"] === null){
                   <!-- Divider -->
       <hr class="sidebar-divider">
 
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
       <li class="nav-item active">
         <a class="nav-link" href="codigo.php">
           <i class="fas fa-fw fa-book"></i>
           <span>Codigos</span></a>
       </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
       <li class="nav-item active">
         <a class="nav-link" href="usuario.php">
-          <i class="fas fa-fw fa-user"></i>
-          <span>usuarios</span></a>
+          <i class="fas fa-fw fa-book"></i>
+          <span>Usuario</span></a>
       </li>
-          
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
