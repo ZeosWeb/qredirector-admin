@@ -122,12 +122,12 @@ $(document).on("click", ".btnEditarCodigo", function(){
     $("#ubicacion").val(ubicacion);
     $("#unidad").val(unidad);
     $("#permiso").val(permiso);
-    if ($("#activo").val(activo)=="Si") {
+    /*if ($("#activo").val(activo)=="Si") {
         $("#activo").val("Si");
     } else {
         $("#activo").val("No");
-    }
-    //$("#activo").val(activo);
+    }*/
+    $("#activo").val(activo);
     opcion = 2; //editar
     
     $(".modal-header").css("background-color", "#4e73df");

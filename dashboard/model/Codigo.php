@@ -13,6 +13,7 @@ $activo = (isset($_POST['activo'])) ? $_POST['activo'] : '';
 $opcion = (isset($_POST['opcion'])) ? $_POST['opcion'] : '';
 $id = (isset($_POST['id'])) ? $_POST['id'] : '';
 
+
 switch($opcion){
     case 1: //alta
 
@@ -26,9 +27,8 @@ switch($opcion){
         $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
         break;
     case 2: //modificación
-
-        $consulta = "UPDATE `codigos` SET `id` = `$id`, `url_code` = `$url_code`, `ubicacion` = `$ubicacion`, `unidad` = $unidad, `permiso` = $permiso, `activo` = $activo  WHERE `codigos`.`id` = `$id` ";
-        $resultado = $conexion->prepare($consulta);
+        $consulta = "UPDATE `codigos` SET `url_code` = '$url_code', `ubicacion` = '$ubicacion', `unidad` = '$unidad', `permiso` = '$permiso', `activo` = '$activo' WHERE `codigos`.`id` = '$id'";
+       $resultado = $conexion->prepare($consulta);
         $resultado->execute();
 
         $consulta = "SELECT * FROM codigos ORDER BY id DESC LIMIT 1";
