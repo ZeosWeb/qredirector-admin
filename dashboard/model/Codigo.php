@@ -16,7 +16,7 @@ $id = (isset($_POST['id'])) ? $_POST['id'] : '';
 switch($opcion){
     case 1: //alta
 
-       $consulta = "INSERT INTO codigos (id, url_code, ubicacion, unidad, permiso, activo) VALUES ('$id','$url_code', '$ubicacion', $unidad, '$permiso', $activo) ";
+       $consulta = "INSERT INTO codigos (id, url_code, ubicacion, unidad, permiso, activo) VALUES ('$id','$url_code', '$ubicacion', $unidad, $permiso, $activo) ";
         $resultado = $conexion->prepare($consulta);
         $resultado->execute(); 
 
@@ -27,7 +27,7 @@ switch($opcion){
         break;
     case 2: //modificación
 
-        $consulta = "UPDATE `codigos` SET `id` = $id, `url_code` = `$url_code`, `ubicacion` = $ubicacion, `unidad` = `$unidad`, `permiso` = $permiso, `activo` = $activo  WHERE `codigos`.`id` = $id ";
+        $consulta = "UPDATE `codigos` SET `id` = `$id`, `url_code` = `$url_code`, `ubicacion` = `$ubicacion`, `unidad` = $unidad, `permiso` = $permiso, `activo` = $activo  WHERE `codigos`.`id` = `$id` ";
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();
 

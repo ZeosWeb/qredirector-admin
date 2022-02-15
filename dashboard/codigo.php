@@ -48,7 +48,7 @@ $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
                             ?>
                             <tr>
                                 <td><?php echo $dat['id'] ?></td>
-                                <td><?php echo $dat['url'] ?></td>
+                                <td><?php echo $dat['url_code'] ?></td>
                                 <td><?php echo $dat['ubicacion'] ?></td>
                                 <td><?php echo $dat['unidad'] ?></td>
                                 <td><?php echo $dat['permiso'] ?></td>

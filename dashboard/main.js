@@ -64,7 +64,6 @@ $("#btnNuevoUsuario").click(function(){
     $(".modal-header").css("color", "white");
     $(".modal-title").text("Nuevo Usuario");            
     $("#modalUsuario").modal("show");        
-    id=null;
     opcion = 1; //alta
 });
 
@@ -75,7 +74,6 @@ $("#btnNuevoCodigo").click(function(){
     $(".modal-header").css("color", "white");
     $(".modal-title").text("Nuevo Codigo");            
     $("#modalCodigo").modal("show");        
-    id=null;
     opcion = 1; //alta
 });
 
@@ -95,7 +93,7 @@ $(document).on("click", ".btnEditarUsuario", function(){
     unidad = fila.find('td:eq(3)').text();
     permiso = fila.find('td:eq(4)').text();
     
-    $("#idusuario").val(id);
+    $("#idUsuario").val(id);
     $("#usuario").val(usuario);
     $("#nombre").val(nombre);
     $("#unidad").val(unidad);
@@ -117,14 +115,19 @@ $(document).on("click", ".btnEditarCodigo", function(){
     ubicacion = fila.find('td:eq(2)').text();
     unidad = parseInt(fila.find('td:eq(3)').text());
     permiso = parseInt(fila.find('td:eq(4)').text());
-    activo = parseInt(fila.find('td:eq(5)').text());
+    activo = fila.find('td:eq(5)').text();
     
     $("#idCodigo").val(id);
     $("#url_code").val(url_code);
     $("#ubicacion").val(ubicacion);
     $("#unidad").val(unidad);
     $("#permiso").val(permiso);
-    $("#activo").val(activo);
+    if ($("#activo").val(activo)=="Si") {
+        $("#activo").val("Si");
+    } else {
+        $("#activo").val("No");
+    }
+    //$("#activo").val(activo);
     opcion = 2; //editar
     
     $(".modal-header").css("background-color", "#4e73df");
@@ -221,7 +224,7 @@ $("#formCodigo").submit(function(e){
         data: {id:id, url_code:url_code, ubicacion:ubicacion , unidad:unidad, permiso:permiso, activo:activo, opcion:opcion},
         success: function(data){
             id = data[0].id;            
-            url_code = data[0].url_code;
+            url_code = data[0].url;
             ubicacion = data[0].ubicacion;
             unidad = data[0].unidad;
             permiso = data[0].permiso;
