@@ -111,11 +111,11 @@ $(document).on("click", ".btnEditarUsuario", function(){
 $(document).on("click", ".btnEditarCodigo", function(){
     fila = $(this).closest("tr");
     id = fila.find('td:eq(0)').text();
-    url_code  = fila.find('td:eq(1)').text();
-    ubicacion = fila.find('td:eq(2)').text();
-    unidad = parseInt(fila.find('td:eq(3)').text());
-    permiso = parseInt(fila.find('td:eq(4)').text());
-    activo = fila.find('td:eq(5)').text();
+    url_code  = fila.find('td:eq(2)').text();
+    ubicacion = fila.find('td:eq(3)').text();
+    unidad = parseInt(fila.find('td:eq(4)').text());
+    permiso = parseInt(fila.find('td:eq(5)').text());
+    activo = fila.find('td:eq(6)').text();
     
     $("#idCodigo").val(id);
     $("#url_code").val(url_code);
