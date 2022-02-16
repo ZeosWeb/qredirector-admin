@@ -34,6 +34,7 @@ $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
                         <thead class="text-center">
                             <tr>
                                 <th>Id Codigo</th>
+                                <th>hits</th>
                                 <th>URL</th>
                                 <th>Ubicacion</th>
                                 <th>Unidad</th>
@@ -48,6 +49,7 @@ $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
                             ?>
                             <tr>
                                 <td><?php echo $dat['id'] ?></td>
+                                <td><?php echo $dat['hits'] ?></td>
                                 <td><?php echo $dat['url_code'] ?></td>
                                 <td><?php echo $dat['ubicacion'] ?></td>
                                 <td><?php echo $dat['unidad'] ?></td>
