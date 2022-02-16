@@ -3,8 +3,8 @@
      public static function Conectar(){
          define('servidor','localhost');
          define('nombre_bd','qredirector');
-         define('usuario','root');
-         define('password','usbw');         
+         define('usuario','qredirector');
+         define('password','QR3d1r3ct0r');         
          $opciones = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
          
          try{
