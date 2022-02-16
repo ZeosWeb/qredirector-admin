@@ -115,12 +115,31 @@ $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
                     <option value=0>No</option>;
                     </select>
                 </div>
-                   
+                <div class="form-group">
+                <div class="fv-row">
+                    <div class="dropzone" id="formulario">
+                        <div class="dz-message needsclick">
+                            <i class="bi bi-file-earmark-arrow-up text-primary fs-3x"></i>
+                            <div class="ms-4">
+                                <h3 class="fs-5 fw-bolder text-gray-900 mb-1">Suelta archivos aquí para subirlos.</h3>
+                                <span class="fs-7 fw-bold text-gray-400">Puedes subir solo un archivo de hasta 50MB.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
                 <button type="submit" id="btnGuardar" class="btn btn-dark">Guardar</button>
             </div>
+            <script>
+                var myDropzone = new Dropzone("#formulario", {
+                    url: "upload.php",
+                    maxFiles: 1,
+                    maxFilesize: 50,
+                    addRemoveLinks: true
+                });
+            </script>
         </form>    
         </div>
     </div>
